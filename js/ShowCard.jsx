@@ -1,19 +1,27 @@
 import React from 'react';
+import { string } from 'prop-types';
 
 const ShowCard = props =>
     <div className="show-card">
-        <img alt={`${props.show.title} Show Poster`} src={`/public/img/posters/${props.show.poster}`} />
+        <img alt={`${props.title} Show Poster`} src={`/public/img/posters/${props.poster}`} />
         <div>
             <h3>
-                {props.show.title}
+                {props.title}
             </h3>
             <h4>
-                ({props.show.year})
+                ({props.year})
             </h4>
             <p>
-                {props.show.description}
+                {props.description}
             </p>
         </div>
     </div>;
+
+ShowCard.propTypes = {
+    poster: string.isRequired,
+    title: string.isRequired,
+    year: string.isRequired,
+    description: string.isRequired
+};
 
 export default ShowCard;
